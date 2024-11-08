@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django_1</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Hallo this is index.html</h1>
+
+    <p>logo eduteach : </p>
+    <img src="{% static 'images/logoeduteach.png' %}" alt="">
+
+    <h2> Your Access Record</h2>
+    <div class='djangotwo'> 
+        {% if access_records %} 
+        <table>
+            <thead>
+                <th>Site Name</th>
+                <th> Date Accesed</th>
+            </thead>
+            
+            <tbody>
+                {% for acc in access_records %}
+                <tr>
+                    <td> {{ acc.name }}</td>
+                    <td>{{ acc.date}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p> NO Access record for You </p>
+        {% endif %}
+    </div>
+</body>
+</html>
